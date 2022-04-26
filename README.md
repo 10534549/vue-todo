@@ -1,4 +1,4 @@
-# composition-api-learning
+# vue-todo-app
 
 ## Project setup
 ```
