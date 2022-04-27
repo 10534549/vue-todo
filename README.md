@@ -1,5 +1,8 @@
 # vue-todo-app
 
+## Visit the website here
+https://thenitpickycloud.github.io/vue-todo-app/#/
+
 ## Project setup
 ```
 npm install
