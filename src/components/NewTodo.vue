@@ -7,7 +7,7 @@
         <div class="todobg"/>
         <div class="todotext"> 
             Content:
-            <input type="text" class="todoinput" v-model="content"/>
+            <input type="text" class="todoinput" @keydown.enter="addNewTodo" v-model="content"/>
         </div>
         <div class="controlButtons">
             <button class="controlButtonAdd" @click="addNewTodo">Add</button>

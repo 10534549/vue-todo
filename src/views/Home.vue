@@ -10,21 +10,21 @@
     <div class="content" v-for="todo in todos" :key="todo">
       <!-- content = 250 characters max -->
       <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corporis blanditiis aut quibusdam, a perspiciatis quam id ratione qui quasi adipisci fugiat amet dolore autem reprehenderit quia, asperiores incidunt rem. Lorem ipsum dolor sit amet consect -->
-      <Todo :content="todo.content" :id="todo.id" :progress="todo.inProgress" @changedProgress="toggleOngoing" @remmed="removeTodo"/>
+      <Todo :content="todo.content" :id="todo.id" :progress="todo.inProgress" @changedProgress="toggleOngoing" @remmed="removeTodo" @updatedContent="changeContent"/>
     </div>
   </div>
   <div v-if="completed">
     <div class="content" v-for="todo in Completed" :key="todo">
       <!-- content = 250 characters max -->
       <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corporis blanditiis aut quibusdam, a perspiciatis quam id ratione qui quasi adipisci fugiat amet dolore autem reprehenderit quia, asperiores incidunt rem. Lorem ipsum dolor sit amet consect -->
-      <Todo :content="todo.content" :id="todo.id" :progress="todo.inProgress" @changedProgress="toggleOngoing" @remmed="removeTodo"/>
+      <Todo :content="todo.content" :id="todo.id" :progress="todo.inProgress" @changedProgress="toggleOngoing" @remmed="removeTodo" @updatedContent="changeContent"/>
     </div>
   </div>
   <div v-if="ongoing">
     <div class="content" v-for="todo in Ongoing" :key="todo">
       <!-- content = 250 characters max -->
       <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, corporis blanditiis aut quibusdam, a perspiciatis quam id ratione qui quasi adipisci fugiat amet dolore autem reprehenderit quia, asperiores incidunt rem. Lorem ipsum dolor sit amet consect -->
-      <Todo :content="todo.content" :id="todo.id" :progress="todo.inProgress" @changedProgress="toggleOngoing" @remmed="removeTodo"/>
+      <Todo :content="todo.content" :id="todo.id" :progress="todo.inProgress" @changedProgress="toggleOngoing" @remmed="removeTodo" @updatedContent="changeContent"/>
     </div>
   </div>
   <div v-if="addit">
@@ -114,7 +114,15 @@ export default {
       todos.value.push({content: stuff, inProgress: true, id: todos.value.length + 1})
     }
 
-    return {view_all, completed, ongoing, addit, selectNav, todos, Completed, Ongoing, toggleOngoing, removeTodo, updateTodos}
+    function changeContent(theId, newContent){
+      todos.value.forEach((todo) => {
+        if(todo.id == theId){
+          todo.content = newContent
+        }
+      })
+    }
+
+    return {view_all, completed, ongoing, addit, selectNav, todos, Completed, Ongoing, toggleOngoing, removeTodo, updateTodos, changeContent}
   }
 }
 </script>
