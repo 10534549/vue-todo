@@ -1,7 +1,7 @@
 # vue-todo-app
 
 ## Visit the website here
-https://thenitpickycloud.github.io/vue-todo-app/#/
+TBD
 
 ## Project setup
 ```
